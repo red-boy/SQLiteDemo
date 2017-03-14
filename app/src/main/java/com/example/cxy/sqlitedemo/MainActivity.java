@@ -56,13 +56,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 break;
             case R.id.register:
+                if (mDBHelp.isExit(btn_name.getText().toString())) {
+                    Log.d("MainActivity", "该用户名已经注册过");
+                    return;
+                }
                 ContentValues cv = new ContentValues();
                 cv.put("username", btn_name.getText().toString());
                 cv.put("password", btn_password.getText().toString());
                 cv.put("question", btn_question.getText().toString());
                 cv.put("answer", btn_answer.getText().toString());
                 mDBHelp.insert(cv);
-                Log.d("MainActivity", "注册完成，跳转到登录Activity");
+                Log.d("MainActivity", "注册完成");
 
                 break;
         }

@@ -77,7 +77,7 @@ public class DBHelp extends SQLiteOpenHelper {
     }
 
     public String[] query3(String userName) {
-        String[] result = new String[3];
+        String[] result = new String[3];//存储三个数据的数组
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.query("UserInfo_db", new String[]{"username", "password", "question", "answer"}, "username=?", new String[]{userName}, null, null, null);
         while (c.moveToNext()) {
@@ -88,6 +88,17 @@ public class DBHelp extends SQLiteOpenHelper {
         db.close();
         c.close();
         return result;
+    }
+
+    //判断用户名是否注册过
+    public boolean isExit(String userName) {
+        boolean b = false;
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.query("UserInfo_db", new String[]{"username"}, "username=" + userName, null, null, null, null);
+        if (c.getCount() != 0) {
+            b = true;
+        }
+        return b;
     }
 
 
