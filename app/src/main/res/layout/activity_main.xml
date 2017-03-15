@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.cxy.sqlitedemo.MainActivity">
 
+
     <LinearLayout
         android:id="@+id/line1"
         android:layout_width="wrap_content"
@@ -14,102 +15,126 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="用户名:"/>
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/tx_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="邮箱/手机号"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户名:"/>
 
+                <EditText
+                    android:id="@+id/tx_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="邮箱/手机号"/>
+            </LinearLayout>
 
-        <LinearLayout
+        </ScrollView>
+
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="密     码："/>
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/tx_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="输入密码"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密     码："/>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/tx_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="输入密码"/>
 
-        <LinearLayout
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="问     题："/>
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/tx_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="问题"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="问     题："/>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/tx_question"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="问题"/>
 
-        <LinearLayout
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="答     案："/>
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/tx_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="答案"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="答     案："/>
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/tx_answer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="答案"/>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/line1"
-        android:layout_centerInParent="true"
-        android:orientation="horizontal">
+        android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/login"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="直接登录"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="新用户注册"/>
-    </LinearLayout>
+            <Button
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="直接登录"/>
 
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="新用户注册"/>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
