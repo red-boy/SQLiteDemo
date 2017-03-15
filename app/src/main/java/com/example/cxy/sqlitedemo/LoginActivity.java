@@ -1,12 +1,12 @@
 package com.example.cxy.sqlitedemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cxy.sqlitedemo.db.DBHelp;
 
@@ -36,12 +36,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         String fromDB[] = mDBHelp.query3(txName.getText().toString());
-        if (txPassword.getText().toString().equals(fromDB[0])) {
-            Log.d("LoginActivity", "密码正确，成功登录");
-            tx_show.setText(fromDB[1] + "/" + fromDB[2]);
+        if (fromDB[0] != null) {
+            if (txPassword.getText().toString().equals(fromDB[0])) {
+                Toast.makeText(this, "密码正确，成功登录", Toast.LENGTH_SHORT).show();
+                tx_show.setText(fromDB[1] + "/" + fromDB[2]);
 
+            } else {
+                Toast.makeText(this, "密码错误，登录失败:" + fromDB[0] + "/" + txName.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Log.d("LoginActivity", "密码错误，登录失败");
+            Toast.makeText(this, "用户名不存在，请重新输入", Toast.LENGTH_SHORT).show();
         }
 
     }

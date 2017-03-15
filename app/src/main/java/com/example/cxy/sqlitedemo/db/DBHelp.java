@@ -25,7 +25,7 @@ public class DBHelp extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         //创建表
-        String sql = "CREATE TABLE UserInfo_db (username varchar(20) not null,password varchar(20) not null,question varchar(30) not null,answer varchar(30) not null)";
+        String sql = "CREATE TABLE UserInfo_db (id integer primary key autoincrement,username text not null,password varchar(20) not null,question varchar(30) not null,answer varchar(30) not null)";
         db.execSQL(sql);//执行SQL语句
 
     }
@@ -90,11 +90,13 @@ public class DBHelp extends SQLiteOpenHelper {
         return result;
     }
 
-    //判断用户名是否注册过
+    /**
+     * 判断用户名是否注册过
+     */
     public boolean isExit(String userName) {
         boolean b = false;
         SQLiteDatabase db = getWritableDatabase();
-        Cursor c = db.query("UserInfo_db", new String[]{"username"}, "username=" + userName, null, null, null, null);
+        Cursor c = db.query("UserInfo_db", new String[]{"username"}, "username=?", new String[]{userName}, null, null, null, null);
         if (c.getCount() != 0) {
             b = true;
         }

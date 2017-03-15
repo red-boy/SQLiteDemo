@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.cxy.sqlitedemo.db.DBHelp;
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.register:
                 if (mDBHelp.isExit(btn_name.getText().toString())) {
-                    Log.d("MainActivity", "该用户名已经注册过");
+                    Toast.makeText(this, "该用户名已经注册过", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 ContentValues cv = new ContentValues();
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 cv.put("question", btn_question.getText().toString());
                 cv.put("answer", btn_answer.getText().toString());
                 mDBHelp.insert(cv);
-                Log.d("MainActivity", "注册完成");
+                Toast.makeText(this, "注册完成", Toast.LENGTH_SHORT).show();
 
                 break;
         }
